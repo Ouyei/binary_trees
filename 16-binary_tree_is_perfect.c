@@ -10,14 +10,14 @@
 
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	size_t chck1, chck2;
+	size_t check1, check2;
 
 	if (tree == NULL)
 		return (0);
 
-	chck1 = binary_tree_size(tree->left);
-	chck2 = binary_tree_size(tree->right);
-	if (chck1 == chck2)
+	check1 = binary_tree_size(tree->left);
+	check2 = binary_tree_size(tree->right);
+	if (check1 == check2)
 		return (1);
 
 	return (0);
