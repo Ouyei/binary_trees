@@ -3,7 +3,7 @@
 
 /**
  * binary_tree_rotate_right - rotate right a tree
- * @tree: pointer to tree 
+ * @tree: pointer to tree
  * Return: pointer to tree or NULL
  */
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree)
