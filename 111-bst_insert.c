@@ -38,7 +38,7 @@ bst_t *bst_insert(bst_t **tree, int value)
 			else
 			{
 				new->parent = point, point->left = new;
-				return (new);
+				return (point->left);
 			}
 		}
 		if (value > point->n)
@@ -48,7 +48,7 @@ bst_t *bst_insert(bst_t **tree, int value)
 			else
 			{
 				new->parent = point, point->right = new;
-				return (new);
+				return (point->right);
 			}
 		}
 	}
