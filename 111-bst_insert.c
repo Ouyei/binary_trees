@@ -5,40 +5,33 @@
  * bst_insert - insert node in search tree
  * @tree: pointer to pointer
  * @value: to be inserted
- * Return: NULL or pointer
+ * Return: NULL or pointer. New version. Using function 0
  */
 
 bst_t *bst_insert(bst_t **tree, int value)
 {
-	bst_t *new = NULL, *point = NULL;
+	bst_t *point = NULL;
 
 	if (!tree)
 		return (NULL);
-	new = malloc(sizeof(bst_t));
-	if (!new)
-		return (NULL);
-	new->n = value;
 	if (!*tree)
 	{
-		*tree = new;
-		return (new);
+		*tree = (bst_t *)binary_tree_node(NULL, value);
+		return (*tree);
 	}
 	point = *tree;
 	while (true)
 	{
 		if (value == point->n)
-		{
-			free(new);
 			return (NULL);
-		}
 		if (value < point->n)
 		{
 			if (point->left)
 				point = point->left;
 			else
 			{
-				new->parent = point, point->left = new;
-				return (new);
+				point->left = (bst_t *)binary_tree_node(point, value);
+				return (point->left);
 			}
 		}
 		if (value > point->n)
@@ -47,8 +40,8 @@ bst_t *bst_insert(bst_t **tree, int value)
 				point = point->right;
 			else
 			{
-				new->parent = point, point->right = new;
-				return (new);
+				point->right = (bst_t *)binary_tree_node(point, value);
+				return (point->right);
 			}
 		}
 	}
