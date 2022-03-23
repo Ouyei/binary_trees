@@ -1,4 +1,5 @@
 #include "binary_trees.h"
+#include <stdbool.h>
 
 /**
  * bst_insert - insert node in search tree
@@ -9,7 +10,7 @@
 
 bst_t *bst_insert(bst_t **tree, int value)
 {
-	bst_t *new = NULL, *point =NULL;
+	bst_t *new = NULL, *point = NULL;
 
 	if (!tree)
 		return (NULL);
@@ -34,7 +35,7 @@ bst_t *bst_insert(bst_t **tree, int value)
 		{
 			if (!point->left)
 			{
-				point->parent = point;
+				new->parent = point;
 				return (point->left = new);
 			}
 			point = point->left;
@@ -49,5 +50,5 @@ bst_t *bst_insert(bst_t **tree, int value)
 			point = point->right;
 		}
 	}
-	return (NULL);
+	return (0);
 }
