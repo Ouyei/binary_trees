@@ -3,8 +3,8 @@
 
 /**
  * bst_insert - insert node in search tree
- * @tree: pointer to pointer 
- * @value: to be inserted 
+ * @tree: pointer to pointer
+ * @value: to be inserted
  * Return: NULL or pointer
  */
 
@@ -33,22 +33,23 @@ bst_t *bst_insert(bst_t **tree, int value)
 		}
 		if (value < point->n)
 		{
-			if (!point->left)
+			if (point->left)
+				point = point->left;
+			else
 			{
-				new->parent = point;
-				return (point->left = new);
+				new->parent = point, point->left = new;
+				return (new);
 			}
-			point = point->left;
 		}
-		else
+		if (value > point->n)
 		{
-			if (!point->right)
+			if (point->right)
+				point = point->right;
+			else
 			{
-				new->parent = point;
-				return (point->right = new);
+				new->parent = point, point->right = new;
+				return (new);
 			}
-			point = point->right;
 		}
 	}
-	return (0);
 }
